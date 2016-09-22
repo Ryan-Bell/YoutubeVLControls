@@ -1,12 +1,30 @@
 {
+    // Required
     "manifest_version": 2,
     "name": "Youtube VLC Controls",
-    "description": "This extension provides video controls similar to VLC",
     "version": "1.0.0.0",
-    "browser_action": {
-        "default_icon": "images/vlc.ico",
-        "default_title": "VLC Controls for Youtube"
+
+    // Recommended
+    "default_locale": "en",
+    "description": "This extension provides video controls similar to VLC",
+    "icons": { 
+        "16" : "images/vlc-16.png",
+        "32" : "images/vlc-32.png",
+        "48" : "images/vlc-48.png",
+        "64" : "images/vlc-64.png",
+        "128": "images/vlc-128.png" 
     },
+    "browser_action": {
+        "default_icon": {
+            "16": "images/vlc-16.png",
+            "48": "images/vlc-48.png"
+        },
+        "default_title": "VLC Controls for Youtube",
+        //TODO make the popup html
+        "default_popup": "popup.html"
+
+    },
+    
     "permissions": [
         "activeTab",
         "https://ajax.googleapis.com/"
