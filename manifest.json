@@ -1,5 +1,14 @@
 {
     "manifest_version": 2,
     "name": "Youtube VLC Controls",
-    "version": "1.0.0.0"
+    "description": "This extension provides video controls similar to VLC",
+    "version": "1.0.0.0",
+    "browser_action": {
+        "default_icon": "images/vlc.ico",
+        "default_title": "VLC Controls for Youtube"
+    },
+    "permissions": [
+        "activeTab",
+        "https://ajax.googleapis.com/"
+    ]
 }
