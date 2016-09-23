@@ -1,10 +1,7 @@
 {
-    // Required
     "manifest_version": 2,
     "name": "Youtube VLC Controls",
     "version": "1.0.0.0",
-
-    // Recommended
     "description": "This extension provides video controls similar to VLC",
     "icons": { 
         "16" : "images/vlc-16.png",
@@ -21,13 +18,12 @@
         "default_title": "VLC Controls for Youtube"
     },
     "background": {
-        "scripts": ["jquery.min.js", "background.js"]
+        "scripts": ["background.js"]
     },
     "content_scripts":[{
-        //run if the url is in matches but not in excluded
         "matches": [ "*://*.youtube.com/*" ],
         "exclude_matches": [ "*://*.youtube.com/embed/*", "*://*.youtube.com/tv*", "*://gaming.youtube.com/" ],
-        "js": [ "jquery.min.js", "app.js" ],
+        "js": ["app.js" ],
         "run_at": "document_end"
     }],
     "commands": {
