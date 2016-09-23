@@ -5,7 +5,6 @@
     "version": "1.0.0.0",
 
     // Recommended
-    "default_locale": "en",
     "description": "This extension provides video controls similar to VLC",
     "icons": { 
         "16" : "images/vlc-16.png",
@@ -19,14 +18,42 @@
             "16": "images/vlc-16.png",
             "48": "images/vlc-48.png"
         },
-        "default_title": "VLC Controls for Youtube",
-        //TODO make the popup html
-        "default_popup": "popup.html"
-
+        "default_title": "VLC Controls for Youtube"
     },
-    
-    "permissions": [
-        "activeTab",
-        "https://ajax.googleapis.com/"
-    ]
+    "background": {
+        "scripts": ["jquery.min.js", "background.js"]
+    },
+    "content_scripts":[{
+        //run if the url is in matches but not in excluded
+        "matches": [ "*://*.youtube.com/*" ],
+        "exclude_matches": [ "*://*.youtube.com/embed/*", "*://*.youtube.com/tv*", "*://gaming.youtube.com/" ],
+        "js": [ "jquery.min.js", "app.js" ],
+        "run_at": "document_end"
+    }],
+    "commands": {
+        "medium_back_jump": {
+            "suggested_key": {
+                "default": "Ctrl+Left"
+            },
+            "description": "Jump backwards 5 seconds"
+        },
+        "medium_forward_jump": {
+            "suggested_key": {
+                "default": "Ctrl+Right"
+            },
+            "description": "Jump forwards 5 seconds"
+        },
+        "long_back_jump": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+Left"
+            },
+            "description": "Jump backwards 60 seconds"
+        },
+        "long_forward_jump": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+Right"
+            },
+            "description": "Jump forwards 60 seconds"
+        }
+    }
 }
